@@ -15,7 +15,7 @@ spec:
   selector:
     app: frontend
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-v1
@@ -23,6 +23,9 @@ metadata:
     app: frontend
     version: v1
 spec:
+  selector:
+    matchLabels:
+     app: frontend
   replicas: 1
   template:
     metadata:
@@ -54,7 +57,7 @@ spec:
   selector:
     app: advertisement
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: advertisement-v1
@@ -62,6 +65,9 @@ metadata:
     app: advertisement
     version: v1
 spec:
+  selector:
+    matchLabels:
+        app: advertisement
   replicas: 1
   template:
     metadata:
@@ -93,7 +99,7 @@ spec:
   selector:
     app: forecast
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: forecast-v1
@@ -101,6 +107,9 @@ metadata:
     app: forecast
     version: v1
 spec:
+  selector:
+    matchLabels:
+        app: forecast
   replicas: 1
   template:
     metadata:
